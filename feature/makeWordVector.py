@@ -8,7 +8,7 @@ class Word2VecModelTrainer:
     Word2Vec Features. Basic Process: call train, call load.
     """
 
-    def __init__(self, sentences=[]):
+    def __init__(self, sentences=[], path="word2vec.wordvectors"):
         """
         params: 
         sentences: list of sentences (default: [])
@@ -19,6 +19,7 @@ class Word2VecModelTrainer:
         """
 
         self.sentences = sentences
+        self.path = path
 
     def train(self, size=100, window=7):
         """
@@ -35,12 +36,16 @@ class Word2VecModelTrainer:
         model.train(sentences=self.sentences,
                     total_examples=model.corpus_count, epochs=30)
         word_vectors = model.wv
-        KeyedVectors.save("word2vec.wordvectors")
+        word_vectors.save(self.path)
         return model, word_vectors
 
-    def load_trained(self):
+    def load_trained(self, path=""):
         """
         Loads the trained model
         """
-        wv = KeyedVectors.load("word2vec.wordvectors")
+        if(path != ""):
+            load_path = path
+        else:
+            load_path = self.path
+        wv = KeyedVectors.load(load_path, mmap='r')
         return wv

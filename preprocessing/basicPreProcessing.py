@@ -4,7 +4,7 @@ import contractions
 
 
 class BasicPreProcessing:
-    def __init__(self, text):
+    def __init__(self, text="some default text"):
         """
         Takes in text and preprocesses it.
         Going with design pattern that no function will modify
@@ -14,15 +14,19 @@ class BasicPreProcessing:
         """
         self.text = text
 
-    def preprocess(self, isSplit=False):
+    def preprocess(self, text, isSplit=True):
         """
         Main Function to do preprocessing.
         param isSplit: if true, splits the text into words.
         """
-        text = self.text
+        if text == "":
+            text = self.text
+        else:
+            text = self.text
         text = self.remove_contractions(text)
+        text = text.lower()
         text = self.remove_punctuation(text)
-        text = self.remove_stopwords(text)
+        # text = self.remove_stopwords(text)
         if isSplit:
             return text.split()
         return text
@@ -35,7 +39,8 @@ class BasicPreProcessing:
 
         param text: input text
         """
-        return text.replace(".", " ").replace(",", " ").replace("!", " ").replace("?", " ").replace(";", " ").replace('"', "").replace("'", "")
+        return text.replace('"', "").replace(",", "").replace("'", "")
+        # return text.replace(".", " ").replace(",", " ").replace("!", " ").replace("?", " ").replace(";", " ").replace('"', "").replace("'", "")
 
     def remove_stopwords(self, text):
         """

@@ -49,8 +49,8 @@ def preprocess_text(text):
 dpm = DontPatronizeMe('dataset', 'dontpatronizeme_pcl.tsv')
 
 
-dpm.load_task1()
-data = dpm.train_task1_df
+
+data = dpm.load_task1()
 process = bp.BasicPreProcessing()
 
 data['text_split'] = data['text'].apply(preprocess_text)

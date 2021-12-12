@@ -1,14 +1,14 @@
 # Input Text, Output Text.
-# Made by Sarvesh Bhatnagar
+# Made by Sarvesh Bhatnagar , Dhia Rzig
 import contractions
-
+import string
 
 class BasicPreProcessing:
     def __init__(self, text="some default text"):
         """
         Takes in text and preprocesses it.
         Going with design pattern that no function will modify
-        the text. but instead return a new text. self modification 
+        the text. but instead return a new text. self modification
         is discouraged.
         param text: input text
         """
@@ -31,7 +31,7 @@ class BasicPreProcessing:
             return text.split()
         return text
 
-    def remove_punctuation(self, text):
+    def remove_punctuation(self, t):
         """
         Removes punctuation from the text.
         Currently removes .,?!;"'
@@ -39,7 +39,7 @@ class BasicPreProcessing:
 
         param text: input text
         """
-        return text.replace('"', "").replace(",", "").replace("'", "")
+        return t.translate(t.maketrans('', '', string.punctuation))
         # return text.replace(".", " ").replace(",", " ").replace("!", " ").replace("?", " ").replace(";", " ").replace('"', "").replace("'", "")
 
     def remove_stopwords(self, text):

@@ -3,9 +3,9 @@
 Please ignore the plagiarism found with https://github.com/sarveshbhatnagar/PCL_DETECTION
 
 This is our own code repository. You can verify that from its create date being not too old as we used this to combine our work together.
-I didnt knew if we can give private access to more than 1 people.
+I don't know if we can give private access to more than 1 people.
 
-Detecting weather a text contains patronizing or condesending language
+Detecting whether a text contains patronizing or condesending language
 
 # WORD2VEC From Data Binary
 

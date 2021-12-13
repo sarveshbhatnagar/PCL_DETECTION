@@ -115,3 +115,4 @@ dmypy.json
 
 # dataset ignore
 *.tsv
+task2/*.tsv

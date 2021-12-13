@@ -51,9 +51,12 @@ def preprocess_text(text):
     """
     Should return a list of words
     """
+    text = str(text)
     text = contract_words(text)
     text = text.lower()
-    text = text.replace('"', "").replace(",", "").replace("'", "")
+    # text = text.replace(".", " ").replace(",", " ").replace("!", " ").replace(";", " ").replace('"', "").replace("'", "")
+    text = text.replace('"', "").replace(
+        ",", "").replace("'", "")
     return text.split()
 
 
@@ -88,7 +91,8 @@ if __name__ == '__main__':
     nn_model = dm.NNModels()
 
     # Prepare the data for training and testing.
-    rus = RandomUnderSampler(random_state=42)
+    # rus = RandomUnderSampler(random_state=42)
+    rus = RandomOverSampler(random_state=42)
     X_train = np.array(X_train)
     X_train = X_train.reshape(-1, 1)
     x_rus, y_rus = rus.fit_resample(X_train, y_train)

@@ -125,16 +125,16 @@ class DontPatronizeMe:
         # 												])
         if type == '':
             self.train_task2_df = pd.read_csv(
-                self.train_path+'dontpatronizeme_categories_combined_labels.csv')
+                os.path.join(self.train_path, 'dontpatronizeme_categories_combined_labels.csv'))
         elif type == 'no_punct':
             self.train_task2_df = pd.read_csv(
-                self.train_path+'dontpatronizeme_categories_combined_labels_no_punct.csv')
+                os.path.join(self.train_path, 'dontpatronizeme_categories_combined_labels_no_punct.csv'))
         elif type == 'no_redundant':
             self.train_task2_df = pd.read_csv(
-                self.train_path+'dontpatronizeme_categories_combined_labels_no_redundant.csv')
+                os.path.join(self.train_path, 'dontpatronizeme_categories_combined_labels_no_redundant.csv'))
         elif type == 'seperate':
             self.train_task2_df = pd.read_csv(
-                self.train_path+'dontpatronizeme_categories_seperate_labels.csv')
+                os.path.join(self.train_path, 'dontpatronizeme_categories_seperate_labels.csv'))
         else:
             raise ('Unsupported type parameter')
         return self.train_task2_df

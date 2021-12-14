@@ -1,4 +1,4 @@
-# PCL_DETECTION
+# PCL_DETECTION Task 1
 
 Please ignore the plagiarism found with https://github.com/sarveshbhatnagar/PCL_DETECTION
 
@@ -65,3 +65,7 @@ dont_patronize_me.py : Modified by dhia...
 main_dl.py DEEP LEARNING WITH UNDERSAMPLING
 main_dl_ros.py DEEP LEARNING WITH OVERSAMPLING
 main_nb.py NAIVE BAYES
+
+# For Task 2, please check task2 folder.
+
+Additionally, data insights were collaborative efforts of Sarvesh and Pavan and preprocessing insights were individual efforts of Dhia(Task 1) and Krishna(Task2). Everyone contributed towards their respective tasks.

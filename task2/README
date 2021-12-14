@@ -1,0 +1,22 @@
+#PCL_CATEGORY_DETECTION
+
+Please ignore the plagiarism found with https://github.com/sarveshbhatnagar/PCL_DETECTION
+
+This is our own code repository. You can verify that from its create date being not too old as we used this to combine our work together. I didnt know if we can give private access to more than 1 people.
+
+Detecting the category of a patronizing or condesending language into 7 possible classes:Unbalanced power relations, Shallow solutions, Presupposition, Authority voice, Metaphor, Compassion, The poorer the merrier. 
+
+
+#WORD2VEC From Data category
+word2vec_categories.wordvectors
+
+#Scores
+Precision can be seen as a measure of quality, and recall as a measure of quantity. Higher precision means that an algorithm returns more relevant results than irrelevant ones, and high recall means that an algorithm returns most of the relevant results (whether or not irrelevant ones are also returned).
+
+#How to run the Multi label classification?
+please use PCL_Task2.ipynb for running the Task2 code.
+
+#Code Organization for task1:
+dataset loading,Generation of word2vec model and embeddings, different sampling techniques and features set such as Tf-idf and word2vec embeddings are performed inside the PCL_Task2.ipynb file
+
+Please note that it needs the dontpatronizeme_categories.tsv file as input

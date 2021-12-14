@@ -72,7 +72,11 @@ Additionally, data insights were collaborative efforts of Sarvesh and Pavan and 
 
 # Contributors
 Bhatnagar Sarvesh
+
 Naga Pavan Nukala
+
 Rzig Dhia Elhaq
+
 Krishna Koundinya Burgula
+
 

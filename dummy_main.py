@@ -2,25 +2,15 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import accuracy_score
 from tensorflow.keras import layers
-from sklearn.pipeline import Pipeline
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from imblearn.under_sampling import RandomUnderSampler
-from imblearn.over_sampling import RandomOverSampler
 from gensim.models import KeyedVectors
-import pandas as pd
 import numpy as np
-from gensim.models import Word2Vec
-# from gensim.test.utils import common_texts
 from dont_patronize_me import DontPatronizeMe
 import contractions
 from tensorflow import keras
 
-# Feature
-import feature.basicFeatures as bf
-import feature.makeWordVector as mwv
+
 
 # Preprocessing
 import preprocessing.basicPreProcessing as bp
@@ -56,18 +46,7 @@ process = bp.BasicPreProcessing()
 data['text_split'] = data['text'].apply(preprocess_text)
 
 
-# model = Word2Vec(sentences=data['text_split'], size=100,
-#                  window=5, min_count=1, workers=4)
-# model.save('word2vec.model')
 
-
-# Training the model.
-# model = Word2Vec.load("word2vec.model")
-# model.train(data['text_split'], total_examples= model.corpus_count, epochs=10)
-
-# Saving KeyedVectors
-# word_vectors = model.wv
-# word_vectors.save("word2vec.wordvectors")
 wv = KeyedVectors.load("word2vec.wordvectors", mmap='r')
 
 
@@ -100,11 +79,11 @@ X_train = X_train.reshape(-1, 1)
 x_rus, y_rus = rus.fit_resample(X_train, y_train)
 
 # Below code won't work.
-tweet_clf_one = Pipeline([
-    ('vect', CountVectorizer()),
-    ('tfidf', TfidfTransformer()),
-    ('clf', MultinomialNB()),
-])
+# tweet_clf_one = Pipeline([
+#     ('vect', CountVectorizer()),
+#     ('tfidf', TfidfTransformer()),
+#     ('clf', MultinomialNB()),
+# ])
 # x_rus = x_rus.reshape((len(x_rus),))
 
 

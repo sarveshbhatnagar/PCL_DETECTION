@@ -33,8 +33,6 @@ def ready_data(X, y):
     X = X.reshape(-1, 1)
     x_rus = X
     y_rus = y
-    # rus = RandomUnderSampler(random_state=42)
-    # x_rus, y_rus = rus.fit_resample(X, y)
     x_rus = [item[0] for item in x_rus]
     x_rus = np.array(x_rus).astype(np.float32)
     return x_rus, y_rus
@@ -54,7 +52,6 @@ def preprocess_text(text):
     text = str(text)
     text = contract_words(text)
     text = text.lower()
-    # text = text.replace(".", " ").replace(",", " ").replace("!", " ").replace(";", " ").replace('"', "").replace("'", "")
     text = text.replace('"', "").replace(
         ",", "").replace("'", "")
     return text.split()
@@ -91,16 +88,12 @@ if __name__ == '__main__':
     nn_model = dm.NNModels()
 
     # Prepare the data for training and testing.
-    # rus = RandomUnderSampler(random_state=42)
     rus = RandomOverSampler(random_state=42)
     X_train = np.array(X_train)
     X_train = X_train.reshape(-1, 1)
     x_rus, y_rus = rus.fit_resample(X_train, y_train)
     x_rus = [item[0] for item in x_rus]
     x_rus = np.array(x_rus).astype(np.float32)
-    # x_train, y_train = nn_model.dl_0_process(
-    #     X=X_train, y=y_train, isTrain=True)
-    # x_test, y_test = nn_model.dl_0_process(X=X_test, y=y_test, isTrain=False)
 
     model = nn_model.dl_0()
     model.compile(

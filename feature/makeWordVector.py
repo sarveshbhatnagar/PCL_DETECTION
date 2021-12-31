@@ -12,8 +12,6 @@ class Word2VecModelTrainer:
         """
         params: 
         sentences: list of sentences (default: [])
-
-
         NOTE sentences should be like this 
         [["i", "am", "sarvesh"],["some","other","sentence"]]
         """
@@ -29,11 +27,11 @@ class Word2VecModelTrainer:
         window: window size
         """
 
-        model = Word2Vec(sentences=self.sentences, size=size,
+        model = Word2Vec(sentences=self.sentences, vector_size=size,
                          window=window, min_count=1, workers=4)
         model.save("word2vec.model")
 
-        model.train(sentences=self.sentences,
+        model.train(self.sentences,
                     total_examples=model.corpus_count, epochs=30)
         word_vectors = model.wv
         word_vectors.save(self.path)

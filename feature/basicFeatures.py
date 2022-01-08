@@ -39,7 +39,7 @@ class BasicFeatures:
             ls.append(self.add_vectors(i, wv))
         return sum(ls)
 
-    def get_text_feature(self, text_tokens, n=[3, 5, 7]):
+    def get_text_feature(self, text_tokens, n=[3, 7, ]):
         """
         NOTE: NEW
         """

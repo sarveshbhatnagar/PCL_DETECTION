@@ -78,16 +78,23 @@ if __name__ == '__main__':
     data['embeddings'] = data['text_split'].apply(
         basic_features.add_vectors, wv=wv)
 
+    # NOTE NEW FEATURE
+    data["text_feature"] = data['text_split'].apply(
+        basic_features.get_text_feature)
+    data["embeddings_feature"] = data['text_feature'].apply(
+        basic_features.add_vectors_multiple, wv=wv)
+
     # Random Under Sampler.
     rus = RandomUnderSampler(random_state=42)
     X_train, X_test, y_train, y_test = train_test_split(
         data['embeddings'], data['label'], stratify=data['label'], test_size=0.2, random_state=1)
 
+    # X_train_t, X_test_t, y_train_t, y_test_t = train_test_split(
+    #     data['embeddings'], data['label'], stratify=data['label'], test_size=0.2, random_state=1)
     # Initializing NNModel/Deep Learning Model.
     # by default ip 100,0 and op 2 i.e. 2 classes classification.
     nn_model = dm.NNModels()
 
-    # Prepare the data for training and testing.
     rus = RandomOverSampler(random_state=42)
     X_train = np.array(X_train)
     X_train = X_train.reshape(-1, 1)

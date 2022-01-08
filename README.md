@@ -71,6 +71,7 @@ main_nb.py NAIVE BAYES
 Additionally, data insights were collaborative efforts of Sarvesh and Pavan and preprocessing insights were individual efforts of Dhia(Task 1) and Krishna(Task2). Everyone contributed towards their respective tasks.
 
 # Contributors
+
 Bhatnagar Sarvesh
 
 Naga Pavan Nukala
@@ -78,5 +79,3 @@ Naga Pavan Nukala
 Rzig Dhia Elhaq
 
 Krishna Koundinya Burgula
-
-

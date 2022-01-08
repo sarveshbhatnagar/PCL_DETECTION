@@ -27,7 +27,7 @@ class Word2VecModelTrainer:
         window: window size
         """
 
-        model = Word2Vec(sentences=self.sentences, vector_size=size,
+        model = Word2Vec(sentences=self.sentences, size=size,
                          window=window, min_count=1, workers=4)
         model.save("word2vec.model")
 

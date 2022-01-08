@@ -77,11 +77,11 @@ class NNModels:
 
     def create_baseline(self):
         # create model
-        inputs = keras.Input(shape=(100, ), name="digits")
+        inputs = keras.Input(shape=self.input_shape, name="digits")
         x = layers.Dense(64, activation=keras.layers.LeakyReLU(
             alpha=0.01), name="dense_1")(inputs)
         x = layers.Dropout(0.2)(x)
-        x = layers.Dense(64, activation="relu", name="dense_2")(x)
+        x = layers.Dense(64, activation="tanh", name="dense_2")(x)
         x = layers.Dropout(0.01)(x)
         x = layers.Dense(32, activation=keras.layers.LeakyReLU(
             alpha=0.01), name="dense_3")(x)
@@ -89,8 +89,8 @@ class NNModels:
         x = layers.Dense(32, activation=keras.layers.LeakyReLU(
             alpha=0.01), name="dense_4")(x)
         x = layers.Dropout(0.05)(x)
-        z = layers.Dense(12, activation="relu", name="dense_5")(x)
-        y = layers.Dense(6, activation="relu", name="dense_6")(x)
+        z = layers.Dense(12, activation="tanh", name="dense_5")(x)
+        y = layers.Dense(6, activation="tanh", name="dense_6")(x)
         x = layers.Concatenate()([z, y])
         outputs = layers.Dense(2, activation="softmax", name="predictions")(x)
         model = keras.Model(inputs=inputs, outputs=outputs)

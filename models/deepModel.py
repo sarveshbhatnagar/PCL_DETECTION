@@ -75,7 +75,7 @@ class NNModels:
         )
         return model
 
-    def create_baseline(self):
+    def create_baseline(self, output_shape=2):
         # create model
         inputs = keras.Input(shape=self.input_shape, name="digits")
         x = layers.Dense(64, activation=keras.layers.LeakyReLU(
@@ -92,6 +92,7 @@ class NNModels:
         z = layers.Dense(12, activation="tanh", name="dense_5")(x)
         y = layers.Dense(6, activation="tanh", name="dense_6")(x)
         x = layers.Concatenate()([z, y])
-        outputs = layers.Dense(2, activation="softmax", name="predictions")(x)
+        outputs = layers.Dense(
+            output_shape, activation="softmax", name="predictions")(x)
         model = keras.Model(inputs=inputs, outputs=outputs)
         return model

@@ -22,6 +22,9 @@ class BasicFeatures:
         list_of_words: list of words
         wv: word2vec model
         """
+        if(len(list_of_words) == 0):
+            list_of_words = [list(wv.vocab.keys())[0]]
+
         return sum([wv[word] for word in list_of_words])
 
     def add_vectors_multiple(self, list_of_sentences, wv):
